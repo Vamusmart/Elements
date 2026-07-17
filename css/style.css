@@ -70,15 +70,6 @@ textarea::placeholder {
  *  Custom styles
  */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
-  outline: none;
-  border: none;
-}
-
 .sr-only {
   position: absolute;
   width: 1px;
