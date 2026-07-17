@@ -34,7 +34,7 @@
   --darkblue: #e6d818;
   --white: #ffffff;
   --darkwhite: #f9f9f9;
-    --darkgray: #cccccc;
+  --darkgray: #cccccc;
   --lightdark: #281d1d;
   --attention: #bb1a06;
 }
@@ -59,7 +59,7 @@ input::placeholder,
 textarea::placeholder {
   color: var(--darkgray);
   opacity: 1;
-    font-family: "Gotham-Book", Arial, Helvetica, sans-serif;
+  font-family: "Gotham-Book", Arial, Helvetica, sans-serif;
 }
 
 #home {
@@ -85,7 +85,6 @@ h1 {
   font-size: 0px;
 }
 
-
 h2 {
   display: block;
   font-size: calc(var(--font-normal) + 0.6rem);
@@ -107,67 +106,66 @@ html {
 body {
   background: var(--darkwhite);
   font-family: "Gotham-Book", Arial, Helvetica, sans-serif;
-
 }
 
 body.loaded {
-  opacity:1;
+  opacity: 1;
   transition: opacity 0.3s ease;
 }
+
 /* Contenitore principale */
 .featured_section3 {
-    float: left;
-    width: 100%;
-    padding-top: 35px;
-    padding-right: 0px;
-    padding-bottom: 150px;
-    padding-left: 0px;
-    background-color: #FFF;
-
+  float: left;
+  width: 100%;
+  padding-top: 35px;
+  padding-right: 0px;
+  padding-bottom: 150px;
+  padding-left: 0px;
+  background-color: #FFF;
 }
 
 .box-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 /* 1. Il contenitore: non deve avere un'altezza fissa (no height in px) */
 .onecol_forty {
-    position: relative;
-    width: 40%; /* Su mobile puoi metterlo al 100% se vuoi che occupi tutta la larghezza */
-    display: inline-block;
-    vertical-align: top;
+  position: relative;
+  width: 40%; /* Su mobile puoi metterlo al 100% se vuoi che occupi tutta la larghezza */
+  display: inline-block;
+  vertical-align: top;
 }
 
 /* 2. La prima immagine: fa da "ancora" e definisce l'altezza del contenitore */
 .onecol_forty img.one {
-    position: relative; /* Questa NON è assoluta, così apre il contenitore */
-    display: block;
-    width: 80%; /* Occupa l'80% del contenitore */
-    height: auto;
-    z-index: 1;
+  position: relative; /* Questa NON è assoluta, così apre il contenitore */
+  display: block;
+  width: 80%; /* Occupa l'80% del contenitore */
+  height: auto;
+  z-index: 1;
 }
 
 /* 3. La seconda immagine: si posiziona in percentuale rispetto alla prima */
 .onecol_forty img.two {
-    position: absolute; /* Si aggancia al contenitore */
-    width: 45%;         /* È sempre proporzionata alla prima */
-    bottom: 0;       /* Sporge verso il basso sempre del 15% rispetto all'altezza totale */
-    right: 5%;          /* Distanza costante dal bordo destro */
-    z-index: 2;
-    transform: none;    /* Resetta qualsiasi trasformazione precedente */
+  position: absolute; /* Si aggancia al contenitore */
+  width: 45%;         /* È sempre proporzionata alla prima */
+  bottom: 0;          /* Sporge verso il basso sempre del 15% rispetto all'altezza totale */
+  right: 5%;          /* Distanza costante dal bordo destro */
+  z-index: 2;
+  transform: none;    /* Resetta qualsiasi trasformazione precedente */
 }
 
 /* --- ANIMAZIONI CSS NATIVE --- */
 .onecol_forty img.one {
-    animation: fadeInLeftModern 1s ease-out both;
-    animation-delay: 200ms;
+  animation: fadeInLeftModern 1s ease-out both;
+  animation-delay: 200ms;
 }
 
 .onecol_forty img.two {
-    animation: fadeInRightModern 1s ease-out both;
-    animation-delay: 400ms; /* Un leggero ritardo sulla seconda crea un effetto migliore */
+  animation: fadeInRightModern 1s ease-out both;
+  animation-delay: 400ms; /* Un leggero ritardo sulla seconda crea un effetto migliore */
 }
 
 /* ==========================================================================
@@ -175,85 +173,85 @@ body.loaded {
    ========================================================================== */
 
 .main-header {
-  background-color: #ffffff !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
-  position: sticky !important;
-  top: 0 !important;
-  width: 100% !important;
-  z-index: 9999 !important;
-  padding: 15px 0 !important;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  padding: 15px 0;
 }
 
 .header-container {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  display: flex !important;
-  justify-content: center !important; /* Centra il menu orizzontalmente */
-  align-items: center !important;
-  padding: 0 20px !important;
-  box-sizing: border-box !important;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center; /* Centra il menu orizzontalmente */
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 /* Navigazione */
 .navbar {
-  display: flex !important;
-  gap: 20px !important;
-  align-items: center !important;
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }
 
 .nav-link {
-  text-decoration: none !important;
-  color: #666 !important;
-  font-weight: 500 !important;
-  font-size: 0.95rem !important;
-  transition: color 0.3s ease !important;
-  padding: 5px 10px !important;
-  border-radius: 6px !important;
+  text-decoration: none;
+  color: #666;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+  padding: 5px 10px;
+  border-radius: 6px;
 }
 
 .nav-link:hover {
-  color: #f4b03e !important; 
+  color: #f4b03e; 
 }
 
 /* Pagina Attiva */
 .nav-link.active {
-  color: #f4b03e !important;
-  font-weight: 700 !important;
-  background-color: rgba(244, 176, 62, 0.1) !important;
+  color: #f4b03e;
+  font-weight: 700;
+  background-color: rgba(244, 176, 62, 0.1);
 }
 
 /* Fix per evitare conflitti con float sottostanti */
 main {
-  clear: both !important;
+  clear: both;
 }
 
-/* --- 2. L'UNICO MEDIA QUERY CHE TI SERVE (Sotto i 768px - Tablet verticali e Smartphone) --- */
+/* --- L'UNICO MEDIA QUERY CHE TI SERVE (Sotto i 768px - Tablet verticali e Smartphone) --- */
 @media (max-width: 768px) {
-    .onecol_forty {
-        width: 85%;          /* Sul cellulare si allarga quasi a schermo intero! */
-        margin: 0 auto 100px auto; /* Centra il blocco nella pagina e lascia spazio sotto */
-        display: block;      /* Si dispone su una riga dedicata */
-    }
+  .onecol_forty {
+    width: 85%;          /* Sul cellulare si allarga quasi a schermo intero! */
+    margin: 0 auto 100px auto; /* Centra il blocco nella pagina e lascia spazio sotto */
+    display: block;      /* Si dispone su una riga dedicata */
+  }
 }
 
 @keyframes fadeInLeftModern {
-    from {
-        opacity: 0;
-        transform: translate3d(-50px, 0, 0);
-    }
-    to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
+  from {
+    opacity: 0;
+    transform: translate3d(-50px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 @keyframes fadeInRightModern {
-    from {
-        opacity: 0;
-        transform: translate3d(50px, 0, 0);
-    }
-    to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
+  from {
+    opacity: 0;
+    transform: translate3d(50px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
