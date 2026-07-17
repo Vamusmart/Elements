@@ -6,15 +6,15 @@
   <meta name="description" content="Floating" />
 
   <!-- META TAG PER LINK IMG  -->
-  <meta property="og:title" content="Floating" />
-  <meta property="og:description" content="Floating" />
+  <meta property="og:title" content="Elements" />
+  <meta property="og:description" content="Elements" />
 
   <!-- Link reale del tuo sito web -->
-  <meta property="og:url" content="https://valentinocode.com/floating/" />
+  <meta property="og:url" content="https://valentinocode.com/Elements/" />
 
   <!-- Link assoluto dell'immagine/logo che vuoi mostrare (Es. una foto 1200x630 pixel) -->
   <meta property="og:image"
-    content="https://raw.githubusercontent.com/Vamusmart/api/refs/heads/main/images/link_image.webp" />
+    content="https://raw.githubusercontent.com/Vamusmart/Elements/refs/heads/main/images/link_image.webp" />
 
   <meta property="og:type" content="website" />
   <meta property="og:image:type" content="image/webp" />
@@ -23,39 +23,39 @@
   <!-- ========================================== -->
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Elements | Donazione</title>
+  <title>Elements | Floating</title>
   <link rel="shortcut icon" type="image/x-icon" href="./images/logo.ico" />
-  <link rel="preload" as="image" href="images/slide-one-768.webp" imagesrcset="
-      images/slide-one-768.webp 768w,
-      images/slide-one-1024.webp 1024w,
-      images/slide-one-1440.webp 1440w
-    " imagesizes="100vw" />
-  <link rel="preload" href="/fonts/Gotham-Bold.woff2" as="font" type="font/woff2" crossorigin>
-  <!-- font awesome icon socials cdn link  -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" media="print"
-    onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  </noscript> <!-- custom css file link  -->
-  <!-- Carica il tuo Client ID reale (che ottieni gratuitamente dalla dashboard Developer di PayPal)  -->
+
+  <!-- custom css file link  -->
+  <link rel="stylesheet" href="css/style4.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <!-- Utile per il floating  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <script
     src="https://www.paypal.com/sdk/js?client-id=ATXtuFkbmzRe8l3dqsgOMvXXcGsIOY5Imr9HILD8bKoTmlkVAg06zESFBO9UBLPMOlmX7h_PZ6IMOfUB&currency=EUR"></script>
-  <link rel="stylesheet" href="css/style4.css">
 </head>
 
 <body>
-<!-- header section starts  -->
-<header class="main-header">
-  <div class="header-container">
-    <nav class="navbar">
-      <a href="index.html" class="nav-link">Floating</a>
-      <a href="index2.html" class="nav-link">Contatore Animato</a>
-      <a href="index3.html" class="nav-link">Grafico Animato</a>
-      <a href="index4.html" class="nav-link active">Dona Ora</a>
-    </nav>
-  </div>
-</header>
-<!-- header section ends -->
+  <!-- header section starts  -->
+  <header class="main-header">
+    <div class="header-container">
+      <!-- Inserisci questo pulsante in tutti e 5 i file -->
+    <button class="burger-toggle" aria-label="Apri menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+      <nav class="navbar">
+        <a href="index.html" class="nav-link">Floating</a>
+        <a href="index2.html" class="nav-link">Contatore Animato</a>
+        <a href="index3.html" class="nav-link">Grafico Animato</a>
+        <a href="index4.html" class="nav-link active">Dona Ora</a>
+        <a href="index5.html" class="nav-link">Glow</a>
+
+      </nav>
+    </div>
+  </header>
+  <!-- header section ends -->
 
   <!-- main content starts -->
   <main>
@@ -196,6 +196,8 @@
   <!-- CookiePolicy starts -->
 
   <!-- JavaScript section start -->
+   <!-- Prima la navbar, che è un elemento critico di navigazione -->
+  <script src="navbar.js" defer></script>
   <script src="main4.js" defer></script>
   <!-- JavaScript section end -->
 

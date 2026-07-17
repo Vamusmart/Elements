@@ -1,0 +1,382 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --honey-yellow: #F4B03E;
+  --dark-brown: #332108;
+  --white: #ffffff;
+  --light-gray: #f9f9f9;
+  --border-color: #e2e2e2;
+  --text-dark: #333333;
+}
+
+body {
+    font-family: "Gotham-Book", Arial, Helvetica, sans-serif;
+}
+
+/* Basic reset */
+
+/* HTML & Body Styles */
+html {
+    background-color: #1f242d; /* Dark background */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; /* Standard sans-serif stack */
+    display: grid;
+    place-items: center; /* Center the grid container */
+    min-height: 100%;
+}
+
+/* --- PURE CSS STYLES --- */
+
+/* Grid container for the cards */
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 column by default */
+    gap: 2.5rem;
+    max-width: 1280px;
+    justify-items: center; 
+    padding: 2rem; /* 32px padding */
+}
+
+/* Responsive grid columns */
+/* APPLICA QUESTO CODICE: */
+@media (min-width: 1060px) { /* 1060px garantisce spazio per 3 card da 320px + i gap */
+    .card-container {
+        grid-template-columns: repeat(3, 1fr); /* Passa direttamente a 3 colonne */
+    }
+}
+
+
+/* Inner content of the card (flex layout) */
+.card-inner-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1.5rem; /* 24px padding */
+}
+
+/* Image placeholder */
+.image-placeholder {
+    width: 100%;
+    height: 12rem; /* 192px height */
+    background-color: #334155; /* slate-700 */
+    border-radius: 0.5rem; /* rounded-lg */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem; /* 16px margin */
+}
+
+.image-placeholder-text {
+    color: #64748b; /* slate-500 */
+}
+
+/* Text styles */
+.card-title {
+    font-size: 1.5rem; /* 24px */
+    font-weight: 700;
+    margin-bottom: 0.5rem; /* 8px */
+    color: #ffffff; /* white */
+}
+
+.card-description {
+    font-size: 0.875rem; /* 14px */
+    color: #94a3b8; /* slate-400 */
+    margin-bottom: 1rem; /* 16px */
+    flex-grow: 1; /* Pushes footer to the bottom */
+}
+
+/* Card footer (price and button) */
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto; /* Pushes itself to the bottom */
+}
+
+.card-price {
+    font-size: 1.25rem; /* 20px */
+    font-weight: 600;
+    color: #22d3ee; /* cyan-400 */
+}
+
+/* Button styles */
+.card-button {
+    background-color: #4f46e5; /* indigo-600 */
+    color: #ffffff; /* white */
+    padding: 0.5rem 1.25rem; /* 8px 20px */
+    border-radius: 0.5rem; /* rounded-lg */
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.card-button:hover {
+    background-color: #6366f1; /* indigo-500 */
+}
+
+
+/* --- GLOW ANIMATION STYLES (The effect you wanted) --- 
+  This uses the "z-index sandwich" method.
+*/
+
+/* LAYER 0: The Card (Positioning Container)
+  - This is the main hover target.
+  - It's a positioning container for the layers inside.
+*/
+.product-card {
+    position: relative;
+    width: 320px;
+    height: 480px; 
+    transition: transform 0.3s ease-out;
+}
+
+/* LAYER 2: The Content (The visible card)
+  - Sits on top (z-index: 2).
+  - Has the dark background color.
+  - Clips its corners with overflow: hidden.
+*/
+.card-content-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* Sits ON TOP of the glow */
+    
+    background-color: #1e293b; /* slate-800 */
+    border-radius: 0.75rem; /* 12px */
+    border: 1px solid #334155; /* slate-700 */
+    
+    overflow: hidden; /* Clips the inner content (like the image) AND THE NEW SHINE EFFECT */
+    position: relative; /* Make it a positioning context for the shine effect */
+}
+
+/* LAYER 1: The Glow (The backlight)
+  - Sits behind the content (z-index: 1).
+  - This is the pseudo-element for the glow.
+*/
+.product-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Sits BEHIND the content */
+
+    transform: scale(1.0); /* Starts at normal size */
+    filter: blur(40px); /* Heavy blur */
+    background: linear-gradient(270deg, #0fffc1, #7e0fff);
+    background-size: 200% 200%;
+    
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.4s ease-in-out, transform 0.3s ease-out;
+    border-radius: 0.75rem; /* Match the card's radius */
+}
+
+
+/* LAYER 3: The Shine/Glossy Effect (Pure CSS)
+  - Sits on top of the content (z-index: 3).
+  - It's a pseudo-element of the content wrapper.
+  - It's clipped by the wrapper's overflow: hidden.
+*/
+.card-content-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%; /* Shine width */
+    height: 100%;
+    z-index: 3; /* On top of the content inside */
+    
+    /* The shine itself: a sharp diagonal gradient */
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.0) 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        rgba(255, 255, 255, 0.0) 100%
+    );
+    
+    /* Skew it and hide it off-screen to the left */
+    transform: translateX(-150%) skewX(-30deg);
+    
+    /* Slow transition for the shine */
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    
+    /* This blur adds a nice "holographic" feel */
+    filter: blur(10px);
+}
+
+
+/* --- HOVER EFFECTS --- */
+
+/* Lift the whole card up on hover */
+.product-card:hover {
+    transform: translateY(-5px); 
+}
+
+/* Activate the glow on hover */
+.product-card:hover::before {
+    opacity: 0.8; /* Make the glow visible */
+    transform: scale(1.15); /* Make the glow larger so it appears around the edges */
+    animation: animateGlow 10s ease infinite; /* Start the color animation */
+}
+
+/* Activate the shine on hover */
+.product-card:hover .card-content-wrapper::after {
+    /* Move it across the card to the right */
+    transform: translateX(250%) skewX(-30deg);
+    /* Add a small delay so it happens *after* the backlight appears */
+    transition-delay: 0.1s;
+}
+
+
+/* Keyframes for the gradient animation */
+@keyframes animateGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* --- AUTO-HOVER ANIMATION FOR FEATURED CARD --- */
+
+/* 1. Keyframe for the card lift */
+@keyframes autoLift {
+    0%, 40%, 100% { transform: translateY(0); }
+    60%, 80% { transform: translateY(-5px); } /* Hold the hover state */
+}
+
+/* 2. Keyframe for the backlight glow (opacity and scale) */
+@keyframes autoGlow {
+    0%, 40%, 100% { 
+        opacity: 0; 
+        transform: scale(1.0); 
+    }
+    60%, 80% { 
+        opacity: 0.8; 
+        transform: scale(1.15); 
+    }
+}
+
+/* 3. Keyframe for the shine effect */
+@keyframes autoShine {
+    0%, 50%, 100% { /* Start hidden */
+        transform: translateX(-150%) skewX(-30deg);
+    }
+    65% { /* Flash across */
+        transform: translateX(250%) skewX(-30deg);
+    }
+}
+
+/* Apply animations to the featured card */
+.product-card.is-featured {
+    animation: autoLift 5s ease-in-out infinite;
+}
+
+/* When hovering the featured card, *stop* the lift animation and use the hover one */
+.product-card.is-featured:hover {
+    animation: none; /* Stop the auto-lift */
+    transform: translateY(-5px); /* Apply manual hover lift */
+}
+
+.product-card.is-featured::before {
+    /* Apply auto-glow AND the gradient shift */
+    animation: 
+        autoGlow 5s ease-in-out infinite, 
+        animateGlow 10s ease infinite; /* Gradient shift runs constantly */
+}
+
+/* When hovering, stop auto-glow and use manual hover */
+.product-card.is-featured:hover::before {
+    animation: animateGlow 10s ease infinite; /* Only run the gradient */
+    opacity: 0.8;
+    transform: scale(1.15);
+}
+
+.product-card.is-featured .card-content-wrapper::after {
+    animation: autoShine 5s ease-in-out infinite;
+}
+
+/* When hovering, stop auto-shine and use manual hover */
+.product-card.is-featured:hover .card-content-wrapper::after {
+    animation: none;
+    transform: translateX(250%) skewX(-30deg);
+    transition-delay: 0.1s;
+}
+
+/* ==========================================================================
+   HEADER UNIFICATO - SENZA LOGO
+   ========================================================================== */
+
+.main-header {
+  background-color: #ffffff !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+  position: sticky !important;
+  top: 0 !important;
+  width: 100% !important;
+  z-index: 9999 !important;
+  padding: 15px 0 !important;
+}
+
+.header-container {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  justify-content: center !important; /* Centra il menu orizzontalmente */
+  align-items: center !important;
+  padding: 0 20px !important;
+  box-sizing: border-box !important;
+}
+
+/* Navigazione */
+.navbar {
+  display: flex !important;
+  gap: 20px !important;
+  align-items: center !important;
+}
+
+.nav-link {
+  text-decoration: none !important;
+  color: #666 !important;
+  font-weight: 500 !important;
+  font-size: 0.95rem !important;
+  transition: color 0.3s ease !important;
+  padding: 5px 10px !important;
+  border-radius: 6px !important;
+}
+
+.nav-link:hover {
+  color: #f4b03e !important; 
+}
+
+/* Pagina Attiva */
+.nav-link.active {
+  color: #f4b03e !important;
+  font-weight: 700 !important;
+  background-color: rgba(244, 176, 62, 0.1) !important;
+}
+
+/* Fix per evitare conflitti con float sottostanti */
+main {
+  clear: both !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 991px) {
+  .donation-card {
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}

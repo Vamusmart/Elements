@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Floating" />
+
+  <!-- META TAG PER LINK IMG  -->
+  <meta property="og:title" content="Elements" />
+  <meta property="og:description" content="Elements" />
+
+  <!-- Link reale del tuo sito web -->
+  <meta property="og:url" content="https://valentinocode.com/Elements/" />
+
+  <!-- Link assoluto dell'immagine/logo che vuoi mostrare (Es. una foto 1200x630 pixel) -->
+  <meta property="og:image"
+    content="https://raw.githubusercontent.com/Vamusmart/Elements/refs/heads/main/images/link_image.webp" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:image:type" content="image/webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <!-- ========================================== -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elements | Floating</title>
+  <link rel="shortcut icon" type="image/x-icon" href="./images/logo.ico" />
+
+  <!-- custom css file link  -->
+  <link rel="stylesheet" href="css/style5.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <!-- Utile per il floating  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body>
+  <!-- header section starts  -->
+  <header class="main-header">
+    <div class="header-container">
+      <!-- Inserisci questo pulsante in tutti e 5 i file -->
+    <button class="burger-toggle" aria-label="Apri menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+      <nav class="navbar">
+        <a href="index.html" class="nav-link">Floating</a>
+        <a href="index2.html" class="nav-link">Contatore Animato</a>
+        <a href="index3.html" class="nav-link">Grafico Animato</a>
+        <a href="index4.html" class="nav-link">Dona Ora</a>
+        <a href="index5.html" class="nav-link active">Glow</a>
+
+      </nav>
+    </div>
+  </header>
+  <!-- header section ends -->
+
+  <!-- main content starts -->
+  <main>
+    <!-- home section starts  -->
+    <section class="home" id="home">
+      <div class="content">
+
+        <!-- slides section starts  -->
+        <section class="featured_section3">
+          <div class="card-container">
+
+            <!-- Card 1 (Featured with Auto-Animation) -->
+            <div class="product-card is-featured"> <!-- Класс '.is-featured' теперь здесь -->
+              <!-- LAYER 2: CONTENT -->
+              <div class="card-content-wrapper">
+                <div class="card-inner-content">
+                  <!-- Image Placeholder -->
+                  <div class="image-placeholder">
+                    <span class="image-placeholder-text">Image 1</span>
+                  </div>
+                  <!-- Text Content -->
+                  <h3 class="card-title">Cyber-Sneakers</h3>
+                  <p class="card-description">
+                    Futuristic design and neon sole for conquering the urban jungle.
+                  </p>
+                  <!-- Footer -->
+                  <div class="card-footer">
+                    <span class="card-price">199.99 $</span>
+                    <button class="card-button">Buy</button>
+                  </div>
+                </div>
+              </div>
+              <!-- LAYER 1: GLOW (Handled by ::before) -->
+            </div>
+
+            <!-- Card 2 (Standard) -->
+            <div class="product-card"> <!-- Класс '.is-featured' убран отсюда -->
+              <!-- LAYER 2: CONTENT -->
+              <div class="card-content-wrapper">
+                <div class="card-inner-content">
+                  <!-- Image Placeholder -->
+                  <div class="image-placeholder">
+                    <span class="image-placeholder-text">Image 2</span>
+                  </div>
+                  <!-- Text Content -->
+                  <h3 class="card-title">Neuro-Headset</h3>
+                  <p class="card-description">
+                    Full immersion in virtual worlds with adaptive sound and AI noise cancellation.
+                  </p>
+                  <!-- Footer -->
+                  <div class="card-footer">
+                    <span class="card-price">349.99 $</span>
+                    <button class="card-button">Buy</button>
+                  </div>
+                </div>
+              </div>
+              <!-- LAYER 1: GLOW (Handled by ::before) -->
+            </div>
+
+            <!-- Card 3 (Standard) -->
+            <div class="product-card">
+              <!-- LAYER 2: CONTENT -->
+              <div class="card-content-wrapper">
+                <div class="card-inner-content">
+                  <!-- Image Placeholder -->
+                  <div class="image-placeholder">
+                    <span class="image-placeholder-text">Image 3</span>
+                  </div>
+                  <!-- Text Content -->
+                  <h3 class="card-title">Plasma Backpack</h3>
+                  <p class="card-description">
+                    Lightweight, durable, and with built-in charging. Your gadgets will always be ready.
+                  </p>
+                  <!-- Footer -->
+                  <div class="card-footer">
+                    <span class="card-price">120.00 $</span>
+                    <button class="card-button">Buy</button>
+                  </div>
+                </div>
+              </div>
+              <!-- LAYER 1: GLOW (Handled by ::before) -->
+            </div>
+
+          </div>
+        </section>
+        <!-- slides section ends -->
+
+        <!-- card section starts  -->
+        <!-- about columns section starts  -->
+        <!-- We section starts  -->
+        <!-- contactUs section starts  -->
+
+      </div>
+    </section>
+    <!-- home section ends -->
+  </main>
+  <!-- main content ends -->
+
+  <!-- footer starts -->
+
+  <!-- CookiePolicy starts -->
+
+  <!-- JavaScript section start -->
+   <!-- Prima la navbar, che è un elemento critico di navigazione -->
+  <script src="navbar.js" defer></script>
+  <!-- JavaScript section end -->
+
+</body>
+
+</html>
