@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Floating" />
+
+  <!-- META TAG PER LINK IMG  -->
+  <meta property="og:title" content="Floating" />
+  <meta property="og:description" content="Floating" />
+
+  <!-- Link reale del tuo sito web -->
+  <meta property="og:url" content="https://valentinocode.com/floating/" />
+
+  <!-- Link assoluto dell'immagine/logo che vuoi mostrare (Es. una foto 1200x630 pixel) -->
+  <meta property="og:image"
+    content="https://raw.githubusercontent.com/Vamusmart/api/refs/heads/main/images/link_image.webp" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:image:type" content="image/webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <!-- ========================================== -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elements | Donazione</title>
+  <link rel="shortcut icon" type="image/x-icon" href="./images/logo.ico" />
+  <link rel="preload" as="image" href="images/slide-one-768.webp" imagesrcset="
+      images/slide-one-768.webp 768w,
+      images/slide-one-1024.webp 1024w,
+      images/slide-one-1440.webp 1440w
+    " imagesizes="100vw" />
+  <link rel="preload" href="/fonts/Gotham-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- font awesome icon socials cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" media="print"
+    onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  </noscript> <!-- custom css file link  -->
+  <!-- Carica il tuo Client ID reale (che ottieni gratuitamente dalla dashboard Developer di PayPal)  -->
+  <script
+    src="https://www.paypal.com/sdk/js?client-id=ATXtuFkbmzRe8l3dqsgOMvXXcGsIOY5Imr9HILD8bKoTmlkVAg06zESFBO9UBLPMOlmX7h_PZ6IMOfUB&currency=EUR"></script>
+  <link rel="stylesheet" href="css/style4.css">
+</head>
+
+<body>
+<!-- header section starts  -->
+<header class="main-header">
+  <div class="header-container">
+    <nav class="navbar">
+      <a href="index.html" class="nav-link">Floating</a>
+      <a href="index2.html" class="nav-link">Contatore Animato</a>
+      <a href="index3.html" class="nav-link">Grafico Animato</a>
+      <a href="index4.html" class="nav-link active">Dona Ora</a>
+    </nav>
+  </div>
+</header>
+<!-- header section ends -->
+
+  <!-- main content starts -->
+  <main>
+    <!-- home section starts  -->
+    <section class="home" id="home">
+      <div class="content">
+
+        <!-- slides section starts  -->
+        <section class="featured_section3">
+          <div class="donation-card">
+
+            <!-- Sinistra: Testata Informativa -->
+            <div class="donation-header">
+              <h2 class="donation-title">FAI UNA DONAZIONE</h2>
+              <p class="donation-desc">
+                Aiutaci a difendere le api e a farle tornare in natura! Il tuo contributo è importante: ci aiuterà a
+                seminare più fiori. Dona per le api, la nostra vita dipende da loro!
+              </p>
+            </div>
+
+            <!-- Destra: Form Interattivo -->
+            <form id="clean-donation-form" class="donation-form" method="POST" action="#">
+
+              <!-- Step 1: Selezione Importo -->
+              <div class="form-section">
+                <label class="section-label">Seleziona l'importo</label>
+
+                <!-- Pulsanti di scelta rapida -->
+                <div class="amount-buttons">
+                  <button type="button" class="amount-btn active" data-value="1.00">1,00€</button>
+                  <button type="button" class="amount-btn" data-value="5.00">5,00€</button>
+                  <button type="button" class="amount-btn" data-value="10.00">10,00€</button>
+                  <button type="button" class="amount-btn" data-value="25.00">25,00€</button>
+                  <button type="button" class="amount-btn" id="custom-trigger" data-value="custom">Personalizza</button>
+                </div>
+
+                <!-- Input Importo (nascosto di default, appare se clicchi "Personalizza") -->
+                <div class="custom-amount-wrap" id="custom-input-container" style="display: none;">
+                  <span class="currency-addon">€</span>
+                  <input type="number" id="custom-amount-input" name="donation_amount" min="1" max="5000" step="0.50"
+                    value="1.00" placeholder="Inserisci importo">
+                </div>
+              </div>
+
+              <!-- Step 2: Metodo di Pagamento -->
+              <div class="form-section">
+                <label class="section-label">Metodo di pagamento</label>
+                <div class="payment-gateways">
+                  <label class="gateway-option">
+                    <!-- Cambiato il valore in "credit_card" per PayPal -->
+                    <input type="radio" name="payment_method" value="credit_card" checked>
+                    <span class="gateway-box">Carta di Credito</span>
+                  </label>
+                  <label class="gateway-option">
+                    <input type="radio" name="payment_method" value="paypal">
+                    <span class="gateway-box">PayPal</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Step 3: Informazioni Personali -->
+              <div class="form-section">
+                <label class="section-label">Informazioni Personali</label>
+                <div class="form-grid">
+                  <div class="form-group">
+                    <input type="text" name="first_name" placeholder="Nome" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" name="last_name" placeholder="Cognome" required>
+                  </div>
+                </div>
+                <div class="form-group margin-top">
+                  <input type="email" name="email" placeholder="Indirizzo Email" required>
+                </div>
+              </div>
+
+              <!-- Step 4: Accettazione Termini e Condizioni -->
+              <div class="form-section terms-section">
+                <div class="terms-checkbox-wrap">
+                  <input type="checkbox" id="agree_terms" name="agree_terms" required>
+                  <label for="agree_terms">
+                    Accetto i <a href="#" id="terms-link" class="terms-link">Termini e Condizioni di Donazione</a> *
+                  </label>
+                </div>
+
+                <!-- Box a comparsa dei Termini (Inizialmente nascosto) -->
+                <div class="terms-box" id="terms-dropdown" style="display: none;">
+                  <div class="terms-content">
+                    <p><strong>Politica sulle Donazioni:</strong> L'accettazione di qualsiasi contributo o donazione è a
+                      discrezione del progetto. Non saranno accettate donazioni che non possano essere utilizzate in
+                      coerenza con la nostra missione a tutela delle api.</p>
+                    <p>Incoraggiamo i donatori a chiedere pareri professionali prima di effettuare donazioni qualora
+                      queste possano influire sulla propria situazione fiscale.</p>
+                    <p>I dati personali forniti verranno protetti secondo le normative vigenti e utilizzati unicamente
+                      per elaborare la transazione e inviare la ricevuta.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Submit finale con riepilogo del totale -->
+              <!-- Sostituisci il vecchio form-submit-wrap con questo -->
+              <div class="form-submit-wrap">
+                <div class="total-summary">
+                  Totale: <strong id="total-display">1,00€</strong>
+                </div>
+
+                <!-- Il pulsante "Dona Ora" rimane SEMPRE visibile -->
+                <button type="button" id="standard-submit-btn" class="submit-donation-btn">Dona Ora</button>
+              </div>
+
+              <!-- Questo box si apre come una "scelta sicura" sotto al pulsante SOLO dopo aver cliccato "Dona Ora" se è selezionato PayPal -->
+              <div id="paypal-modal-wrapper"
+                style="display: none; margin-top: 20px; padding: 15px; border: 1px dashed var(--honey-yellow); border-radius: 12px; background: rgba(244, 176, 62, 0.05);">
+                <p style="font-size: 0.85rem; margin: 0 0 10px 0; font-weight: 500; text-align: center; color: #555;">
+                  Clicca qui sotto per completare la donazione sicura con PayPal:
+                </p>
+                <div id="paypal-button-container" style="max-width: 250px; margin: 0 auto;"></div>
+              </div>
+
+            </form>
+          </div>
+        </section>
+        <!-- slides section ends -->
+
+        <!-- card section starts  -->
+        <!-- about columns section starts  -->
+        <!-- We section starts  -->
+        <!-- contactUs section starts  -->
+
+      </div>
+    </section>
+    <!-- home section ends -->
+  </main>
+  <!-- main content ends -->
+
+  <!-- footer starts -->
+
+  <!-- CookiePolicy starts -->
+
+  <!-- JavaScript section start -->
+  <script src="main4.js" defer></script>
+  <!-- JavaScript section end -->
+
+</body>
+
+</html>

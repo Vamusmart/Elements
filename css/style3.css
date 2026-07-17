@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+
+:root {
+  --text-main: #333333;
+  --text-light: #7a7a7a;
+  --accent-yellow: #f4b03e; /* Il giallo miele originale di Elementor */
+  --bg-trail: #eeeeee;      /* Il colore di sfondo del cerchio vuoto */
+}
+
+body {
+    font-family: "Gotham-Book", Arial, Helvetica, sans-serif;
+}
+
+.save-bees-section {
+  font-family: 'Poppins', sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  color: var(--text-main);
+}
+
+/* Stile Intestazione */
+.section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 50px auto;
+}
+
+.section-header .subtitle {
+  font-size: 1.1rem;
+  color: var(--accent-yellow);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.section-header .main-title {
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+}
+
+.section-header .main-title strong {
+  font-weight: 800;
+}
+
+.section-header .description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-light);
+}
+
+.charts-title {
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: 700;
+  margin: 40px 0 30px 0;
+}
+
+/* Griglia dei Grafici */
+.charts-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.chart-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 180px; /* Larghezza fissa per renderli uniformi */
+}
+
+/* Il trucco del grafico a torta tramite conic-gradient */
+.pie-chart {
+  --progress: calc(var(--percent) * 3.6deg);
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--accent-yellow) var(--progress),
+    var(--bg-trail) var(--progress)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  transition: --percent 1s ease-in-out;
+
+  /* --- I FIX PER IPHONE --- */
+  flex-shrink: 0;          /* 1. Impedisce assolutamente a Safari di rimpicciolire/schiacciare il cerchio */
+  aspect-ratio: 1 / 1;     /* 2. Forza il rapporto 1:1 (larghezza = altezza) */
+  box-sizing: border-box;  /* 3. Evita che padding o bordi sballino i calcoli */
+}
+
+/* Rende il grafico a "ciambella" coprendo il centro con un cerchio bianco */
+.chart-center {
+  width: 124px;
+  height: 124px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* --- I FIX PER IPHONE --- */
+  flex-shrink: 0;          /* Impedisce anche al cerchio interno bianco di deformarsi */
+  aspect-ratio: 1 / 1; 
+  box-sizing: border-box;
+}
+
+.percent-label {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent-yellow);
+  line-height: 1;
+}
+
+.value-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-top: 2px;
+}
+
+.chart-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0;
+}
+
+/* ==========================================================================
+   HEADER UNIFICATO - SENZA LOGO
+   ========================================================================== */
+
+.main-header {
+  background-color: #ffffff !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+  position: sticky !important;
+  top: 0 !important;
+  width: 100% !important;
+  z-index: 9999 !important;
+  padding: 15px 0 !important;
+}
+
+.header-container {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  justify-content: center !important; /* Centra il menu orizzontalmente */
+  align-items: center !important;
+  padding: 0 20px !important;
+  box-sizing: border-box !important;
+}
+
+/* Navigazione */
+.navbar {
+  display: flex !important;
+  gap: 20px !important;
+  align-items: center !important;
+}
+
+.nav-link {
+  text-decoration: none !important;
+  color: #666 !important;
+  font-weight: 500 !important;
+  font-size: 0.95rem !important;
+  transition: color 0.3s ease !important;
+  padding: 5px 10px !important;
+  border-radius: 6px !important;
+}
+
+.nav-link:hover {
+  color: #f4b03e !important; 
+}
+
+/* Pagina Attiva */
+.nav-link.active {
+  color: #f4b03e !important;
+  font-weight: 700 !important;
+  background-color: rgba(244, 176, 62, 0.1) !important;
+}
+
+/* Fix per evitare conflitti con float sottostanti */
+main {
+  clear: both !important;
+}
+/* Ottimizzazione Mobile */
+@media (max-width: 480px) {
+  .charts-grid {
+    gap: 20px;
+  }
+  .chart-item {
+    width: 45%; /* Due grafici per riga su schermi molto piccoli */
+  }
+  .pie-chart {
+    width: 120px;
+    height: 120px;
+  }
+  .chart-center {
+    width: 100px;
+    height: 98px;
+  }
+}

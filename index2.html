@@ -23,7 +23,7 @@
   <!-- ========================================== -->
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Elements | Floating</title>
+  <title>Elements | Contatore animato</title>
   <link rel="shortcut icon" type="image/x-icon" href="./images/logo.ico" />
   <link rel="preload" as="image" href="images/slide-one-768.webp" imagesrcset="
       images/slide-one-768.webp 768w,
@@ -37,9 +37,7 @@
   <noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   </noscript> <!-- custom css file link  -->
-  <link rel="stylesheet" href="css/style.css">
-  <!-- Utile per il floating  -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="css/style2.css">
 </head>
 
 <body>
@@ -47,8 +45,8 @@
 <header class="main-header">
   <div class="header-container">
     <nav class="navbar">
-      <a href="index.html" class="nav-link active">Floating</a>
-      <a href="index2.html" class="nav-link">Contatore Animato</a>
+      <a href="index.html" class="nav-link">Floating</a>
+      <a href="index2.html" class="nav-link active">Contatore Animato</a>
       <a href="index3.html" class="nav-link">Grafico Animato</a>
       <a href="index4.html" class="nav-link">Dona Ora</a>
     </nav>
@@ -64,16 +62,39 @@
 
         <!-- slides section starts  -->
         <section class="featured_section3">
-          <div class="box-container">
-            <div class="onecol_forty">
-              <img src="images/pagina-web5.png"
-                alt="¿Qué hacemos? En Foro Empresarial somos profesionales en Diseño Web.."
-                class="one animate fadeInLeft" data-anim-type="fadeInLeft" data-anim-delay="200">
+          <div class="counters-container">
 
-              <img src="images/pagina-web6.png"
-                alt="¿Qué hacemos? En Foro Empresarial somos profesionales en Diseño Web.."
-                class="two animate fadeInRight" data-anim-type="fadeInRight" data-anim-delay="200">
+            <!-- Primo Contatore -->
+            <div class="counter-item">
+              <div class="counter-number-wrap">
+                <span class="counter-number" data-target="3500">3.500</span>
+                <span class="counter-suffix">Kg</span>
+              </div>
+              <h3 class="counter-title">Di Polline Prodotti</h3>
             </div>
+
+            <div class="counter-divider"></div>
+
+            <!-- Secondo Contatore -->
+            <div class="counter-item">
+              <div class="counter-number-wrap">
+                <span class="counter-number" data-target="50000">50.000</span>
+                <span class="counter-suffix">Mq</span>
+              </div>
+              <h3 class="counter-title">Di Mellifere Seminate</h3>
+            </div>
+
+            <div class="counter-divider"></div>
+
+            <!-- Terzo Contatore -->
+            <div class="counter-item">
+              <div class="counter-number-wrap">
+                <span class="counter-number" data-target="5">5</span>
+                <span class="counter-suffix">Mln</span>
+              </div>
+              <h3 class="counter-title">Di Api Aiutate</h3>
+            </div>
+
           </div>
         </section>
         <!-- slides section ends -->
@@ -94,7 +115,7 @@
   <!-- CookiePolicy starts -->
 
   <!-- JavaScript section start -->
-  <script src="main.js" defer></script>
+  <script src="main2.js" defer></script>
   <!-- JavaScript section end -->
 
 </body>
