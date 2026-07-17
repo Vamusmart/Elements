@@ -1,7 +1,7 @@
 /* --- STILI BASE HEADER (Desktop) --- */
 .header-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 15px 5%;
   position: relative;
@@ -17,44 +17,45 @@
   background: transparent;
   border: none;
   cursor: pointer;
-  z-index: 1001; /* Sopra a tutto */
+  z-index: 1001;
+  position: relative; /* Fondamentale per il trucco della X */
 }
 
 .burger-toggle .bar {
   width: 100%;
   height: 3px;
-  background-color: #333; /* Cambia con il colore del tuo tema */
+  background-color: #333;
   transition: all 0.3s ease;
   border-radius: 5px;
+  transform-origin: center; 
 }
 
 /* --- VERSIONE MOBILE (Sotto i 1060px) --- */
 @media (max-width: 1060px) {
   
-  /* Mostriamo il burger menu */
   .burger-toggle {
     display: flex;
+    margin-left: auto; 
   }
 
   /* Trasformiamo la navbar in un menu a comparsa laterale (drawer) */
   .navbar {
     position: fixed;
     top: 0;
-    right: -100%; /* Nascosto inizialmente a destra */
-    width: 250px; /* Larghezza del menu mobile */
+    right: -100%; 
+    width: 250px; 
     height: 100vh;
-    background-color: #fff; /* Colore di sfondo del menu */
+    background-color: #fff; 
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 80px 30px 30px 30px; /* Spazio in alto per non sovrapporsi al pulsante */
+    padding: 80px 30px 30px 30px; 
     gap: 20px;
     transition: right 0.3s ease-in-out;
     z-index: 1000;
   }
 
-  /* Quando la navbar è attiva, scivola dentro lo schermo */
   .navbar.active {
     right: 0;
   }
@@ -63,19 +64,32 @@
     font-size: 1.1rem;
     width: 100%;
     padding: 10px 0;
-    border-bottom: 1px solid #f0f0f0; /* Separatore opzionale */
+    border-bottom: 1px solid #f0f0f0; 
   }
 
-  /* --- ANIMAZIONE BURGER -> "X" --- */
+  /* --- ANIMAZIONE BURGER -> "X" ASSOLUTAMENTE PERFETTA --- */
+  
+  /* 1. Quando è attivo, forziamo la prima e la terza linea al centro esatto */
+  .burger-toggle.active .bar {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -1.5px; /* Metà dell'altezza della barra (3px / 2) per centrarla al millimetro */
+  }
+
+  /* 2. Ruotiamo la prima in un senso */
   .burger-toggle.active .bar:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
+    transform: rotate(45deg);
   }
 
+  /* 3. Facciamo sparire quella centrale */
   .burger-toggle.active .bar:nth-child(2) {
     opacity: 0;
+    transform: scale(0);
   }
 
+  /* 4. Ruotiamo la terza nell'altro senso */
   .burger-toggle.active .bar:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
+    transform: rotate(-45deg);
   }
 }

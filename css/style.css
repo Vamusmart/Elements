@@ -49,6 +49,10 @@
   --font-large: 3rem;
 }
 
+body {
+    font-family: "Gotham-Book", Arial, Helvetica, sans-serif;
+}
+
 ::placeholder {
   color: var(--darkgray); /* più visibile del default */
   opacity: 1; /* importante per Safari */
@@ -58,9 +62,7 @@
 input::placeholder,
 textarea::placeholder {
   color: var(--darkgray);
-  opacity: 1;
-  font-family: "Gotham-Book", Arial, Helvetica, sans-serif;
-}
+  opacity: 1;}
 
 #home {
   overflow: hidden;
@@ -104,7 +106,6 @@ html {
 }
 
 body {
-  background: var(--darkwhite);
   font-family: "Gotham-Book", Arial, Helvetica, sans-serif;
 }
 
@@ -214,9 +215,10 @@ body.loaded {
 }
 
 /* Pagina Attiva */
+/* Pagina Attiva */
 .nav-link.active {
   color: #f4b03e;
-  font-weight: 700;
+      font-weight: 700;
   background-color: rgba(244, 176, 62, 0.1);
 }
 
